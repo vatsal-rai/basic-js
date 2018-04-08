@@ -1,0 +1,371 @@
+<html>
+<head>
+	<style>
+		#player1
+		{
+			background:url(2.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			width:200px;
+			height:400px;
+			left:300px;
+			position:absolute;
+			top:300px;
+        }
+		#player2
+		{
+			background:url(4.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			width:200px;
+			height:400px;
+			left:1050px;
+			position:absolute;
+			top:300px;
+		}
+		#myProgress1 
+		{
+            width: 20%;
+            background-color: yellow;
+            margin-left: 20%;
+            position:relative;
+            border:2px solid black;
+        }
+        #myBar1 
+        {
+            width: 100%;
+            height: 30px;
+            background-color: #FF0000;
+            margin-right: 80%;
+        }
+        #myProgress2 
+        {
+            width: 20%;
+            background-color: yellow;
+            left:20%;
+            border:2px solid black;
+            position:relative;
+        }
+        #myBar2
+        {
+            width: 100%;
+            height: 30px;
+            background-color: #FF0000;
+           
+        }
+        #prgbar
+        {
+            display:flex;
+        }
+        .back
+        {
+        	background: url('arena.jpg');
+        	background-repeat: no-repeat;
+        	background-size: cover;
+        }
+	</style>
+</head>
+<body class="back">
+<div id="prgbar">
+    <div id="myProgress1">
+        <div id="myBar1"></div>
+    </div>
+    <div id="myProgress2">
+        <div id="myBar2"></div>
+    </div>
+    <div>
+        <div id="play">
+            <div id="player1"></div>
+                <div id="player2"></div>
+        </div>
+    </div>
+</div>      
+<h2 style="color:white;">
+<pre>
+PLAYER 1                                                                                                                       PLAYER 2
+</pre>
+</h2>
+ 
+
+<script>
+alert("PRESS OK AND START THE GAME");
+var punchSound = new Audio('PUNCH.mp3');
+var kickSound = new Audio('KICK.mp3');
+var death = new Audio("SCREAM.mp3");
+var applause = new Audio("CHEERS.mp3");
+var blockSound = new Audio("BLOCK.mp3");
+var s = 0;
+	if(s==0)
+	{
+		applause.play();
+	}
+window.addEventListener("keydown", check, false);
+window.addEventListener("keyup", check1, false);
+function check(key)
+{
+	if(key.keyCode=="69")
+	{
+		changeToBlock1()
+	}
+	if(key.keyCode=="83")
+	{
+		changeToKick1()
+		barStatusKick1()
+	}
+	if(key.keyCode=="87")
+	{
+		changeToPunch1()
+		barStatusPunch1()
+	}
+	if(key.keyCode=="65")
+	{
+		left2()
+	}
+	if(key.keyCode=="68")
+	{
+		right2()
+	}
+	if(key.keyCode=="38")
+	{
+		changeToPunch2()
+		barStatusPunch2()
+	}
+	if(key.keyCode=="37")
+	{
+		left1()
+	}
+	if(key.keyCode=="39")
+	{
+		right1()
+	}
+	if(key.keyCode=="40")
+	{
+		changeToKick2()
+		barStatusKick2()
+	}
+	if(key.keyCode=="32")
+	{
+		changeToBlock2()
+	}
+}
+function check1(key)
+{
+	if(key.keyCode=="69")
+	{
+		normalFromBlock1()
+	}
+	if(key.keyCode=="83")
+	{
+		normal1()
+	}
+	if(key.keyCode=="87")
+	{
+		normal1()
+	}
+	if(key.keyCode=="38")
+	{
+		normal2()
+	}
+	if(key.keyCode=="40")
+	{
+		normal2()
+	}
+	if(key.keyCode=="32")
+	{
+		normalFromBlock2()
+	}
+}
+var x;
+var c = 0;
+var k = 0;
+function normalFromBlock1()
+{
+    x=2;
+    c=0;
+	var elem1=document.getElementById("player1");
+	elem1.style.background="url"+"("+x+"."+"png"+")";
+}
+function normalFromBlock2()
+{
+	x=4;
+    k=0;
+	var elem1=document.getElementById("player2");
+	elem1.style.background="url"+"("+x+"."+"png"+")";
+}
+function normal1()                                              //normal stance
+{
+	x=2;
+	var elem1=document.getElementById("player1");
+	elem1.style.background="url"+"("+x+"."+"png"+")";	
+}
+function normal2()
+{
+	x=4;
+	var elem1=document.getElementById("player2");
+	elem1.style.background="url"+"("+x+"."+"png"+")";
+}
+
+var posx= 1050;
+var posx1= 300;
+
+function left1()
+{	
+	if((posx-posx1) >= 160)
+	{	
+        var elem=document.getElementById("player2");
+        posx=posx-10;
+        elem.style.left=posx+'px';
+    }
+}
+
+function right1()
+{
+	if(posx<=1200)
+	{
+	    var elem=document.getElementById("player2");
+        posx=posx+10;
+        elem.style.left=posx+'px';
+    }
+}
+function changeToPunch1()                                              //punching stance
+{
+	var elem=document.getElementById("player1");
+	elem.style.background="url"+"("+"jp"+"."+"png"+")";
+}
+function changeToPunch2()
+{
+	var elem=document.getElementById("player2");
+	elem.style.background="url"+"("+"kp"+"."+"png"+")";
+}
+
+function left2()
+{		
+	if(posx1>=100)
+	{
+        var elem=document.getElementById("player1");
+        posx1=posx1-10;
+        elem.style.left=posx1+'px';
+    }
+}
+
+function right2()
+{
+	if((posx - posx1)>=160)
+	{
+	var elem=document.getElementById("player1");
+    posx1=posx1+10;
+    elem.style.left=posx1+'px';
+    }
+}
+
+var width=100;
+var width1=100;
+
+function barStatusPunch1() 
+{
+    var elem = document.getElementById("myBar2");
+    if(k==1)
+    {
+    	blockSound.play();
+    }   
+    if (width <= 100&&width>=0 && ((posx-posx1) <= 160) && k!=1)
+    {
+    	punchSound.play();
+        width=width-5; 
+        elem.style.width = width + '%'; 
+    }
+    if(width <= 0)
+    {
+    	s=1;
+    	death.play();
+    	window.alert("player1 wins !");
+    }
+}
+
+function barStatusPunch2() 
+{
+    var elem = document.getElementById("myBar1");
+    if(c==1)
+    {
+    	blockSound.play();
+    }   
+    if (width1 <= 100&&width1>=0 && ((posx-posx1) <= 160) && c!=1)
+    {
+    	punchSound.play();
+        width1=width1-5; 
+        elem.style.width = width1 + '%'; 
+    }    
+        if(width1 <= 0)
+        {
+        	s=1;
+        	death.play();
+        	window.alert("player2 wins !");
+        }
+    
+}
+function changeToKick1()                                                  //kicking stance
+{
+	var elem=document.getElementById("player1");
+	elem.style.background="url"+"("+"jk"+"."+"png"+")";
+}                                                                         
+function barStatusKick1()
+{
+	var elem = document.getElementById("myBar2");
+	if(k==1)
+	{
+		blockSound.play();
+	}   
+    if (width <= 100&&width>=0 && ((posx-posx1) <= 160) && k!=1)
+    {
+    	kickSound.play();
+        width=width-10; 
+        elem.style.width = width + '%'; 
+    }
+    if(width <= 0)
+    {
+    	s=1;
+    	death.play();
+    	window.alert("player1 wins !");
+    }
+}
+function changeToKick2()
+{
+	var elem=document.getElementById("player2");
+	elem.style.background="url"+"("+"kk"+"."+"png"+")";
+}
+function barStatusKick2()
+{
+	var elem = document.getElementById("myBar1");
+	if(c==1)
+	{
+		blockSound.play();
+	}   
+    if (width1 <= 100 && width1>=0 && ((posx-posx1) <= 160) && c!=1)
+    {
+    	kickSound.play();
+        width1=width1-10; 
+        elem.style.width = width1 + '%'; 
+    }
+    if(width1 <= 0)
+    {
+    	death.play();
+    	s=1;
+    	window.alert("player2 wins !");
+    }
+}
+function changeToBlock1()
+{
+	c = 1 ;
+	var elem=document.getElementById("player1");
+	elem.style.background="url"+"("+"jb"+"."+"png"+")";
+}
+function changeToBlock2()
+{
+	k = 1 ;
+	var elem=document.getElementById("player2");
+	elem.style.background="url"+"("+"kb"+"."+"png"+")";
+}
+
+</script>
+</body>
+</html>

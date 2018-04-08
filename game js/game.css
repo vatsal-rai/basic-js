@@ -1,0 +1,30 @@
+#leftbar
+{
+	float: left;
+	margin-left: 10%;
+	margin-top: 2%;
+	width: 20%;
+	height: 10px;
+	border: 2px solid #000000;
+}
+#rightbar
+{
+	float: left;
+	margin-left: 35%;
+	margin-top: 2%;
+	width: 20%;
+	height: 10px;
+	border: 2px solid #000000;
+}
+#player1
+{
+	left: 300px;
+	top: 550px;
+	position: absolute;
+}
+#player2
+{
+	right: 900px;
+	top: 550px;
+	position: absolute;
+}
