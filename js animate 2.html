@@ -1,0 +1,194 @@
+<html>
+  <style>
+  #container
+  {
+  width: 400px;
+  height: 550px;
+  position: relative;
+  background: yellow;
+  }
+  #bar
+  {
+  width: 400px;
+  height: 25px;
+  position: absolute;
+  background-color: red;
+  top:50px;
+  }
+  #couple
+  {
+    left:175px;
+    position:absolute;
+  }
+  #lift
+  {
+    position:absolute;
+  }
+  </style>
+  <body>
+
+   <p>
+     <button onclick="elevate1()">3rd floor</button>
+     <button onclick="elevate2()">2nd floor</button>
+     <button onclick="elevate3()">1st floor</button>
+     <button onclick="elevate4()">gnd floor</button> 
+   </p>
+
+   <div id ="container">
+   <div id="lift">
+   <div id='couple'>
+   <img src="C:\Users\vatsal rai\Desktop\js animate\images.jpg" width="50px" height="50px">
+   </div>
+
+    <div id ="bar">
+    
+    </div>
+    </div>
+    </div>
+
+    <script>
+    var pos=50;
+    function elevate1() 
+    {
+    var elem = document.getElementById("lift");
+    var id = setInterval(frame, 5);
+    function frame() 
+    {
+      if(pos>=150)
+      {
+        if(pos==150)
+        {
+          clearInterval(id);
+        }
+        else
+        {
+          pos--;
+          elem.style.top=pos+'px';
+        }
+
+        }
+        else if(pos<=150)
+        {
+         if (pos == 150) 
+        {
+        clearInterval(id);
+        } 
+        else 
+       {
+        pos++; 
+        elem.style.top = pos + 'px'; 
+      
+       }
+       }
+       }
+       }
+    function elevate2() 
+    {
+    var elem = document.getElementById("lift");   
+    var id = setInterval(frame, 5);
+    function frame() 
+    {
+      if(pos>=250)
+      {
+        if(pos==250)
+        {
+          clearInterval(id);
+        }
+        else
+        {
+          pos--;
+          elem.style.top=pos+'px';
+        }
+
+        }
+        else if(pos<=250)
+        {
+       if (pos == 250) 
+       {
+        clearInterval(id);
+       } 
+       else 
+      {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      }
+      }
+      }
+      }
+       function elevate3() 
+      {
+      var elem = document.getElementById("lift");   
+      var id = setInterval(frame, 5);
+      function frame() 
+      {
+      if(pos>=350)
+      {
+        if(pos==350)
+        {
+          clearInterval(id);
+        }
+        else
+        {
+          pos--;
+          elem.style.top=pos+'px';
+        }
+
+        }
+        else if(pos<=350)
+        {
+    if (pos == 350) 
+    {
+      clearInterval(id);
+    } 
+    else 
+    {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      
+    }
+    }
+    }
+  }
+
+     function elevate4() 
+    {
+    var elem = document.getElementById("lift");   
+    var id = setInterval(frame, 5);
+    function frame() 
+    {
+      if(pos>=475)
+      {
+        if(pos==475)
+        {
+          clearInterval(id);
+        }
+        else
+        {
+          pos--;
+          elem.style.top=pos+'px';
+        }
+
+        }
+        else if(pos<=475)
+        {
+    if (pos == 475) 
+    {
+      clearInterval(id);
+    } 
+    else 
+    {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      
+    }
+    }
+    }
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
